@@ -120,6 +120,13 @@ class TelaCracha extends StatelessWidget {
                     ),
                   ],
                 ),
+
+                const SizedBox(height: 16),
+
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Validar Carteirinha'),
+                ),
               ],
             ),
           ),
