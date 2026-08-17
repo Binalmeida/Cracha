@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/cartao_estudante.dart';
+import 'desafio_lista.dart';
 
 void main() {
   runApp(const MeuCrachaApp());
@@ -38,8 +39,35 @@ class TelaCracha extends StatelessWidget {
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
       ),
-      body: const Center(
-        child: CartaoEstudante(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CartaoEstudante(
+              nome: 'Ana Silva Santos',
+              curso: 'Desenvolvimento Mobile / PPDM',
+              ra: '2026109923',
+              email: 'ana.silva@estudante.edu.br',
+              imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc5EFiPQ7vEorCoTdthjOapNe_TA1NB1x1NGmPI-ZdYQ&s=10',
+            ),
+
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DesafioLista(),
+                  ),
+                );
+              },
+              child: const Text(
+                'Ver 3 Crachás',
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

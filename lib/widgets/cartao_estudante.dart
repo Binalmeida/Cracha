@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CartaoEstudante extends StatelessWidget {
-  const CartaoEstudante({super.key});
+  final String nome;
+  final String curso;
+  final String ra;
+  final String email;
+  final String imagem;
+
+  const CartaoEstudante({
+    super.key,
+    required this.nome,
+    required this.curso,
+    required this.ra,
+    required this.email,
+    required this.imagem,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 320,
       padding: const EdgeInsets.all(20),
-
       decoration: BoxDecoration(
         color: Colors.green.shade50,
         borderRadius: BorderRadius.circular(16),
@@ -24,7 +36,6 @@ class CartaoEstudante extends StatelessWidget {
           ),
         ],
       ),
-
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -33,25 +44,25 @@ class CartaoEstudante extends StatelessWidget {
             CircleAvatar(
               radius: 40,
               backgroundColor: Colors.green,
-              foregroundImage: NetworkImage(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc5EFiPQ7vEorCoTdthjOapNe_TA1NB1x1NGmPI-ZdYQ&s=10',
-              ),
+              foregroundImage: NetworkImage(imagem),
             ),
 
             const SizedBox(height: 12),
 
-            const Text(
-              'Ana Silva Santos',
-              style: TextStyle(
+            Text(
+              nome,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.green,
               ),
             ),
 
-            const Text(
-              'Desenvolvimento Mobile / PPDM',
-              style: TextStyle(
+            Text(
+              curso,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
                 fontWeight: FontWeight.w500,
@@ -64,15 +75,15 @@ class CartaoEstudante extends StatelessWidget {
             ),
 
             Row(
-              children: const [
-                Icon(
+              children: [
+                const Icon(
                   Icons.badge,
                   color: Colors.green,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Text(
-                  'RA: 2026109923',
-                  style: TextStyle(
+                  'RA: $ra',
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),
@@ -82,16 +93,18 @@ class CartaoEstudante extends StatelessWidget {
             const SizedBox(height: 8),
 
             Row(
-              children: const [
-                Icon(
+              children: [
+                const Icon(
                   Icons.email,
                   color: Colors.green,
                 ),
-                SizedBox(width: 10),
-                Text(
-                  'ana.silva@estudante.edu.br',
-                  style: TextStyle(
-                    fontSize: 14,
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    email,
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
                   ),
                 ),
               ],
@@ -99,8 +112,8 @@ class CartaoEstudante extends StatelessWidget {
 
             const SizedBox(height: 8),
 
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Icon(
                   Icons.check_circle,
                   color: Colors.green,
@@ -119,7 +132,9 @@ class CartaoEstudante extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {},
-              child: const Text('Validar Carteirinha'),
+              child: const Text(
+                'Validar Carteirinha',
+              ),
             ),
           ],
         ),
